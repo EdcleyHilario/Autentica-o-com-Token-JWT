@@ -21,7 +21,7 @@ export class ClinicaService {
   }
 
   async update(id: number, updateClinicaDto: UpdateClinicaDto) {
-    const { nome, cnpj } = updateClinicaDto;
+    const { nome, cnpj, address, city, state, contact } = updateClinicaDto;
     const updateUser = await this.prisma.clinica.update({
       where: {
         id: id,
@@ -29,6 +29,10 @@ export class ClinicaService {
       data: {
         name: nome,
         cnpj: cnpj,
+        address: address,
+        city: city,
+        state: state,
+        contact: contact,
       },
     });
     return `This action updates a #${updateUser.name} ok`;
