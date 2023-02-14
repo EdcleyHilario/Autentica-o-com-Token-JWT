@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 model User {
-  id       Int       @id @default(autoincrement())
+  id       String    @id @default(uuid())
   email    String    @unique
   password String
   name     String?
@@ -11,11 +11,11 @@ model User {
 
 model Clinica {
   id     Int      @id @default(autoincrement())
-  nome   String
+  nome   String?
   cnpj   String?
   ativo  Boolean? @default(false)
   user   User?    @relation(fields: [userId], references: [id])
-  userId Int?
+  userId String?
 }
 
 generator client {
