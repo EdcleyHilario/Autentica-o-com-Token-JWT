@@ -15,7 +15,7 @@ export class UserService {
       password: await bcrypt.hash(createUserDto.password, 10),
       clinicas: {
         create: {
-          ativo: true,
+          active: true,
         },
       },
     };

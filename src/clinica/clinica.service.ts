@@ -27,10 +27,10 @@ export class ClinicaService {
         id: id,
       },
       data: {
-        nome: nome,
+        name: nome,
         cnpj: cnpj,
       },
     });
-    return `This action updates a #${updateUser.nome} ok`;
+    return `This action updates a #${updateUser.name} ok`;
   }
 }
