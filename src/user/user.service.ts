@@ -13,6 +13,11 @@ export class UserService {
     const data: Prisma.UserCreateInput = {
       ...createUserDto,
       password: await bcrypt.hash(createUserDto.password, 10),
+      clinicas: {
+        create: {
+          ativo: true,
+        },
+      },
     };
 
     const createdUser = await this.prisma.user.create({ data });
